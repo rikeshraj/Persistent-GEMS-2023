@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        const input = prompt("Enter string");
+
+        let val = input;
+
+        function isPalindrome(str){
+            str = str.toLowerCase();
+            str = str.replace(/ /g, "");
+            let len = str.length;
+            for(let i=0; i<len/2; i++) {
+                if(str[i] != str[len-i-1])
+                    return false;
+            }
+            return true;
+        }
+
+        let a = isPalindrome(val);
+        console.log(a);
+
+        if(a) {
+            console.log(val + " is a palindrome");
+        }
+        else {
+            console.log(val + " is not a palindrome");
+        }
+    </script>
+</body>
+</html>
