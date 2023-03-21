@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Credit Card Validation</title>
+        <script type="text/javascript">
+            function validate() {
+                var phNo = document.getElementById("phoneNumber");
+                if(phNo.length != 10)
+                    console.log("Phone number must be 10 digits");
+                var cardNo = document.getElementById("cardNumber");
+                if(cardNo.length != 16)
+                    console.log("Card number must be 16 digits");
+            }
+            function checkPhoneNumber() {
+                var phNo = document.getElementById("phoneNumber");
+                var tf = /^\d+$/.test(phNo);
+                if(tf == false) {
+                    console.log("Phone number must contains only digits");
+                }
+            }
+            function checkCardNumber() {
+                var cardNo = document.getElementById("cardNumber");
+                var tf = /^\d+$/.test(cardNo);
+                if(tf == false) {
+                    console.log("Card number must contains only digits");
+                }
+            }
+    	</script>
+	</head>
+	<body>
+        <h3>Phone Number & Card Validation</h3>
+        Enter your Phone Number:<input type="text" id="phoneNumber" onkeydown="checkPhoneNumber()">
+        <div id="phoneNumber_Warning">
+            Phone number must contains only digits
+        </div>
+        </br>
+        
+        Enter your Card Number:<input type="text" id="cardNumber" onkeydown="checkCardNumber()">
+        <div id="cardNumber_Warning">
+            Phone number must contains only digits
+        </div>
+        </br>
+        
+        <button type="button" id="validate" onclick="validate()">Validate</button>
+       <div id="success">
+           Details stored in database
+       </div>
+	</body>
+</html>
+

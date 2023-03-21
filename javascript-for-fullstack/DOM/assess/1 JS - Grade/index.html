@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade</title>
+</head>
+<body>
+    <h1>Grade Sheet</h1>
+    Marks <input type="text" name="mark" id="mark">
+    <input type="button" name="submit" onclick="myFunction()">
+    <div id="result"></div>
+    <script type="text/javascript">
+        function myFunction() {
+            var marks = document.getElementById("mark").value;
+            var grade = "RA";
+            if(marks==100)
+                grade = "A+";
+            else if(marks>=90 && marks<100)
+                grade = "A";
+            else if(marks>=80 && marks<90)
+                grade = "B";
+            else if(marks>=70 && marks<80)
+                grade = "C";
+            else if(marks>=60 && marks<70)
+                grade = "D";
+            else if(marks>=50 && marks<60)
+                grade = "E";
+            document.getElementById("result").innerHTML = "Grade obtained by the student is : " + grade;
+        }
+    </script>
+</body>
+</html>
