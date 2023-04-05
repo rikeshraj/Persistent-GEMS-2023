@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Book List</h1>
+    <div id="booklist">
+        <table>
+            <tr>
+                <th>Book Name</th>
+                <th>Author Name</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <td>Farm House</td>
+                <td>George Orwell</td>
+                <td>$10</td>
+            </tr>
+            <tr>
+                <td>Good Times, Bad Times</td>
+                <td>Harold Evans</td>
+                <td>$20</td>
+            </tr>
+            <tr>
+                <td>A Journey</td>
+                <td>Tony Blair</td>
+                <td>$50</td>
+            </tr>
+            <tr>
+                <td>The Jungle Book</td>
+                <td>Rudyard Kipling</td>
+                <td>$30</td>
+            </tr>
+            <tr>
+                <td>Oliver Twist</td>
+                <td>Charles Dickens</td>
+                <td>$40</td>
+            </tr>
+        </table>
+    </div>
+    <div class="formData">
+        <label for="name">Book Name : </label>
+        <input type="text" id="name">
+        <div class="fields">
+            <label for="price">Author Name : </label>
+            <input type="text" id="price">
+        </div>
+        <label for="availableQuantity">Book Price : </label>
+        <input type="text" id="availableQuantity">
+    </div>
+    <button id="convertToJSON" onclick="tojson()">Convert to JSON</button>
+    <div id="jsonData"></div>  
+</body>
+</html>

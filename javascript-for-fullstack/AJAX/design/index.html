@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <title>AJAX - JSON Retrieval and Updating JSON data</title>
+    <style>
+        table {
+            width: 50%;
+        }
+        th {
+            background: #f1f1f1;
+            font-weight: bold;
+            padding: 6px;
+        }
+        td {
+            background: #f9f9f9;
+            padding: 6px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            // FETCHING DATA FROM JSON FILE
+            $.getJSON("Students.json", function (data) {
+                var student = '';
+                // ITERATING THROUGH OBJECTS
+                $.each(data, function (key, value) {
+                    //CONSTRUCTION OF ROWS HAVING
+                    // DATA FROM JSON OBJECT
+                    student += '<tr>';
+                    student += '<td>' + value.id + '</td>';
+                    student += '<td>' + value.name + '</td>';
+                    student += '<td>' + value.DOB + '</td>';
+                    student += '<td>' + value.mobileNumber + '</td>';
+                    student += '<td>' + value.email + '</td>';
+                    student += '<td>' + value.address + '</td>';
+                    student += '<td>' + value.DOJ + '</td>';
+                    student += '<td>' + value.department + '</td>';
+                    student += '<td>' + value.mark + '</td>';
+                    student += '</tr>';
+                });
+                //INSERTING ROWS INTO TABLE 
+                $('#myTable').append(student);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>Student Details</h2>
+    <table id="myTable">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>DOB</th>
+            <th>Mobile Number</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>DOJ</th>
+            <th>Department</th>
+            <th>Mark</th>
+        </tr>
+    </table>
+    <label for="id">Student Id : </label>
+    <input type="text" id="id">
+    <br>
+    <label for="fieldType">Field Type : </label>
+    <select id="fieldType">
+        <option value="1">Name</option>
+        <option value="2">DOB</option>
+        <option value="3">Mobile Number</option>
+        <option value="4">Email</option>
+        <option value="5">Address</option>
+        <option value="6">DOJ</option>
+        <option value="7">Department</option>
+        <option value="8">Mark</option>
+    </select>
+    <br>
+    <label for="fieldValue">Field Value : </label>
+    <input type="text" id="fieldValue">
+    <br>
+    <button id="update" onclick="changeContent()">UPDATE</button>
+    
+    <script>
+        function changeContent() {
+            rn = document.getElementById('id').value;
+            cn = document.getElementById('fieldType').value;
+            content = document.getElementById("fieldValue").value;
+            var x=document.getElementById('myTable').rows[parseInt(rn,10)].cells;
+            x[parseInt(cn,10)].innerHTML=content;
+        }
+    </script>
+</body>
+</html>
